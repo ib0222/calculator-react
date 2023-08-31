@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(23, 23, 49);
+}
+input{
+  width: 100%;
+  font-size: 30px;
+  padding: 20px;
+  text-align: end;
+}
+.calculator{
+  border: 1px solid rgb(71, 0, 80);
+  padding: 40px;
+  background-color: rgb(71, 0, 80);
+  border-radius: 20px;
+}
+.keys{
+  margin-top: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.key{
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: grey;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.key:hover{
+  background-color: rgb(174, 174, 174);
+}
+#equal{
+  grid-column: 3/5;
+  background-color: darkgreen;
+}
+#equal:hover{
+  background-color: rgb(0, 142, 0);
+}
+#clear{
+  background-color: darkred;
+}
+#clear:hover{
+  background-color: rgb(174, 0, 0);
+}
+.key:nth-child(2) , .key:nth-child(3) , .key:nth-child(4),.key:nth-child(8),.key:nth-child(12),.key:nth-child(16){
+  background-color: blueviolet;
+}
+.key:nth-child(2):hover , .key:nth-child(3):hover , .key:nth-child(4):hover,.key:nth-child(8):hover,.key:nth-child(12):hover,.key:nth-child(16):hover{
+  background-color: rgb(180, 99, 255);
+}
