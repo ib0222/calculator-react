@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+
   const [input,setInput] = useState("")
 
   function handleNumberClick(num){
@@ -11,20 +12,24 @@ function App() {
   function handleOperatorClick(operator){
     setInput(input+operator)
   }
+  const calculate = (expression) => {
+    try {
+      const sanitizedExpression = expression.replace(/[^-()\d/*+.]/g, '');
+      const result = new Function(`return ${sanitizedExpression}`)();
+      return result;
+    } catch (error) {
+      return "Error";
+    }
+  };
 
-  function handleClearClick(){
+  const handleClearClick = () => {
     setInput("")
   }
 
   const handleEqualClick = () => {
-    try {
-      const salam = eval(input); // Using eval is not recommended for production
-      setInput(salam.toString());
-    } catch (error) {
-     console.log(error)
-    }
-  }; 
-
+    const result = calculate(input);
+    setInput(result.toString());
+  };
   return (
     <>
       <div className="calculator">
